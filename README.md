@@ -1,179 +1,237 @@
-![Filament Maskable-Entry](https://raw.githubusercontent.com/anishregminaglibang/maskable-entry/main/art/maskable-entry.png)
+<h1> Filament Maskable Entry </h1>
 
-# Filament Maskable-Entry
+![01KB2DNQYPT4B9TRPE36X6EA0E (2)](https://github.com/user-attachments/assets/bf29fdb5-2384-419a-a5fb-996c90e7e52f)
 
-A powerful Filament PHP infolist component that enables seamless maskable entry. Features include maskable entry, preview functionality, and easy integration with Laravel. Perfect for displaying sensitive data like passwords, social security numbers, and credit card numbers in Filament infolists.
+<p align="center"><strong>A reusable maskable entry component for Filament Infolists.</strong></p>
+
+A powerful Filament PHP infolist component that enables seamless maskable entry. Ideal for hiding and toggling sensitive values such as passwords, social security numbers, credit card numbers, and API keys.
+
+---
 
 ## Features
 
--   🔒 **Maskable Display**: Hide sensitive values with customizable mask patterns
--   👁️ **Toggle Visibility**: Click to reveal/hide the actual value
--   🎨 **Filament Integration**: Seamlessly integrates with Filament v4 infolists
--   ⚙️ **Flexible Configuration**: Customize mask patterns and masking characters
--   📱 **Responsive**: Works perfectly on all screen sizes
+* 🔒 **Maskable Display** — Hide sensitive data with custom mask patterns
+* 👁️ **Toggle Visibility** — One click to reveal or hide the actual value
+* 🎨 **Native Filament v4 Integration** — Works like any infolist entry
+* ⚙️ **Fully Configurable** — Custom patterns, masking characters, closures
+* 📱 **Responsive** — Works across all device sizes
+
+---
 
 ## Requirements
 
--   PHP 8.1 or higher
--   Laravel 10.0 or higher
--   Filament 4.0 or higher
+* PHP 8.1+
+* Laravel 10+
+* Filament 4.x
+
+---
 
 ## Installation
 
-You can install the package via Composer:
+```bash
+composer require anish/maskable-entry
+```
 
-composer require anish/maskable-entryThe package will automatically register its service provider using Laravel's package auto-discovery.
+The package auto-discovers its service provider—no manual setup required.
 
-## Usage
+---
 
-### Basic Usage
+## Basic Usage
 
-Use `MaskableEntry` in your Filament infolist schemas just like any other entry component:
-
+```php
 use Anish\MaskableEntry\Components\MaskableEntry;
 use Filament\Schemas\Schema;
 
 public static function configure(Schema $schema): Schema
 {
-    return $schema
-        ->components([
-            MaskableEntry::make('social_security_number')
-                ->maskValue('XXX-XX-XXXX')
-                ->actualValue(fn ($record) => $record->social_security_number)
-->label('Social Security Number'),
-]);
-}### Advanced Usage
-
-#### With Custom Mask Pattern
-
-hp
-MaskableEntry::make('credit_card')
-->maskValue('XXXX-XXXX-XXXX-XXXX')
-->actualValue(fn ($record) => $record->credit_card_number)
-->label('Credit Card Number')#### With Closure for Actual Value
-p
-MaskableEntry::make('password')
-->maskValue('XXXXXXXX')
-->actualValue(fn (User $record) => $record->password)
-->label('Password')#### With Custom Masking Character
-
-MaskableEntry::make('api_key')
-->maskValue('\***\*-\*\***-\***\*-\*\***')
-->actualValue(fn ($record) => $record->api_key)
-->maskingChar('\*')
-->label('API Key')### Available Methods
-
-#### `maskValue(string $value)`
-
-Sets the mask pattern to display when the value is hidden. Use `X` (or your custom masking character) to represent digits that should be masked.
-
-->maskValue('XXX-XX-XXXX')#### `actualValue(string|Closure|null $value)`
-
-Sets the actual value to display when revealed. Can be a string or a Closure that receives the record.
-
-->actualValue(fn ($record) => $record->social_security_number)
-// or
-->actualValue('123-45-6789')#### `maskingChar(string $char)`
-
-Sets the character used in the mask pattern. Defaults to `X`.
-
-->maskingChar('\*')#### Standard TextEntry Methods
-
-Since `MaskableEntry` extends Filament's `TextEntry`, you can use all standard methods:
-p
-MaskableEntry::make('field')
-->maskValue('XXX-XX-XXXX')
-->actualValue(fn ($record) => $record->value)
-->label('Custom Label')
-->placeholder('N/A')
-->copyable()
-->icon('heroicon-o-shield-check')## How It Works
-
-1. **Masked State**: By default, the component displays the mask pattern (e.g., `XXX-XX-XXXX`)
-2. **Toggle Button**: An eye icon allows users to toggle between masked and revealed states
-3. **Revealed State**: When clicked, the actual formatted value is displayed (e.g., `123-45-6789`)
-4. **Formatting**: The component automatically formats the actual value according to the mask pattern
-
-## Examples
-
-### Social Security Number
-
-MaskableEntry::make('ssn')
-->maskValue('XXX-XX-XXXX')
-->actualValue(fn ($record) => $record->ssn)
-    ->label('Social Security Number')### Credit Card Number
-hp
-MaskableEntry::make('credit_card')
-    ->maskValue('XXXX-XXXX-XXXX-XXXX')
-    ->actualValue(fn ($record) => $record->credit_card)
-->label('Credit Card')### Phone Number
-
-MaskableEntry::make('phone')
-->maskValue('(XXX) XXX-XXXX')
-->actualValue(fn ($record) => $record->phone)
-    ->label('Phone Number')### Password
-p
-MaskableEntry::make('password')
-    ->maskValue('XXXXXXXX')
-    ->actualValue(fn ($record) => $record->password)
-->label('Password')## Configuration
-
-The package uses Laravel's auto-discovery, so no additional configuration is required. The service provider is automatically registered.
-
-## Testing
-
-composer test## Code Style
-
-The package uses Laravel Pint for code formatting:
-
-composer format## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-### Development Setup
-
-1. Fork the repository
-2. Clone your fork: `git clone https://github.com/your-username/maskable-entry.git`
-3. Install dependencies: `composer install`
-4. Create a new branch: `git checkout -b feature/your-feature-name`
-5. Make your changes
-6. Run tests: `composer test`
-7. Format code: `composer format`
-8. Commit your changes: `git commit -m "Add your feature"`
-9. Push to the branch: `git push origin feature/your-feature-name`
-10. Open a Pull Request
-
-### Code Style
-
-Please ensure your code follows the [Laravel coding standards](https://laravel.com/docs/contributions#coding-style) and passes all tests.
-
-## Security
-
-If you discover any security-related issues, please email anishregminaglibang@gmail.com instead of using the issue tracker.
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Credits
-
--   [Anish Regmi](https://github.com/anishregminaglibang)
--   [All Contributors](../../contributors)
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
-
-## Support
-
-If you find this package useful, please consider:
-
--   ⭐ Starring the repository
--   🐛 Reporting bugs
--   💡 Suggesting new features
--   🤝 Contributing code
--   ☕ [Buying me a coffee](https://github.com/sponsors/anishregminaglibang/)
+    return $schema->components([
+        MaskableEntry::make('social_security_number')
+            ->maskValue('XXX-XX-XXXX')
+            ->actualValue(fn ($record) => $record->social_security_number)
+            ->label('Social Security Number'),
+    ]);
+}
+```
 
 ---
 
-Made with ❤️ by [Anish Regmi](https://github.com/anishregminaglibang)
+## Advanced Usage
+
+### Custom Mask Pattern
+
+```php
+MaskableEntry::make('credit_card')
+    ->maskValue('XXXX-XXXX-XXXX-XXXX')
+    ->actualValue(fn ($record) => $record->credit_card_number)
+    ->label('Credit Card Number');
+```
+
+### Using a Closure for Actual Value
+
+```php
+MaskableEntry::make('password')
+    ->maskValue('XXXXXXXX')
+    ->actualValue(fn (User $record) => $record->password)
+    ->label('Password');
+```
+
+### Custom Masking Character
+
+```php
+MaskableEntry::make('api_key')
+    ->maskValue('****-****-****-****')
+    ->actualValue(fn ($record) => $record->api_key)
+    ->maskingChar('*')
+    ->label('API Key');
+```
+
+---
+
+## Available Methods
+
+### `maskValue(string $value)`
+
+The pattern shown in masked mode.
+Use `X` (or your custom char) to represent masked digits.
+
+```php
+->maskValue('XXX-XX-XXXX')
+```
+
+### `actualValue(string|Closure|null $value)`
+
+Defines the value revealed on toggle.
+
+```php
+->actualValue(fn ($record) => $record->social_security_number)
+// or
+->actualValue('123-45-6789')
+```
+
+### `maskingChar(string $char)`
+
+Changes the masking character. Default: `X`.
+
+```php
+->maskingChar('*')
+```
+
+### Supports All Standard `TextEntry` Methods
+
+```php
+MaskableEntry::make('field')
+    ->maskValue('XXX-XX-XXXX')
+    ->actualValue(fn ($record) => $record->value)
+    ->label('Custom Label')
+    ->placeholder('N/A')
+    ->copyable()
+    ->icon('heroicon-o-shield-check');
+```
+
+---
+
+## How It Works
+
+1. **Masked State** — Displays the mask pattern (`XXX-XX-XXXX`)
+2. **Toggle Button** — Eye icon switches visibility
+3. **Revealed State** — Shows the actual value formatted
+4. **Formatting** — Automatically aligns characters to mask structure
+
+---
+
+## Examples
+
+### SSN Number
+
+```php
+MaskableEntry::make('ssn')
+    ->maskValue('XXX-XX-XXXX')
+    ->actualValue(fn ($record) => $record->ssn)
+    ->label('Social Security Number');
+```
+
+### Credit Card Number
+
+```php
+MaskableEntry::make('credit_card')
+    ->maskValue('XXXX-XXXX-XXXX-XXXX')
+    ->actualValue(fn ($record) => $record->credit_card)
+    ->label('Credit Card');
+```
+
+### Phone Number
+
+```php
+MaskableEntry::make('phone')
+    ->maskValue('(XXX) XXX-XXXX')
+    ->actualValue(fn ($record) => $record->phone)
+    ->label('Phone Number');
+```
+
+### Password
+
+```php
+MaskableEntry::make('password')
+    ->maskValue('XXXXXXXX')
+    ->actualValue(fn ($record) => $record->password)
+    ->label('Password');
+```
+
+---
+
+## Testing
+
+```bash
+composer test
+```
+
+---
+
+## Code Style
+
+This package uses Laravel Pint:
+
+```bash
+composer format
+```
+
+---
+
+## Contributing
+
+Contributions are welcome!
+
+### Development Setup
+
+1. Clone the repo
+2. `composer install`
+3. Create a new branch
+4. Write your feature
+5. Run tests & Pint
+6. Submit PR
+
+---
+
+## Security
+
+If you find a security issue, please email:
+**[anishregminaglibang@gmail.com](mailto:anishregminaglibang@gmail.com)**
+
+---
+
+## Changelog
+
+See **[CHANGELOG](CHANGELOG.md)**.
+
+---
+
+## Credits
+
+* [Anish Regmi](https://github.com/anishregmi17)
+* All Contributors
+
+---
+
+## License
+
+MIT
