@@ -1,0 +1,62 @@
+{
+    "name": "anish/maskable-entry",
+    "type": "library",
+    "description": "A powerful Filament PHP infolist component that enables seamless maskable entry. Features include maskable entry, preview functionality, and easy integration with Laravel. Perfect for maskable values in infolists.",
+    "keywords": [
+        "anishregminaglibang",
+        "laravel",
+        "filament",
+        "maskable-entry",
+        "laravel-package",
+        "filament-component"
+    ],
+    "homepage": "https://github.com/anishregminaglibang/maskable-entry",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anish Regmi",
+            "email": "anishregminaglibang@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/anishregminaglibang/"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^4.0",
+        "spatie/laravel-package-tools": "^1.15.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anish\\MaskableEntry\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Anish\\MaskableEntry\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Anish\\MaskableEntry\\MaskableEntryServiceProvider"
+            ]
+        }
+    }
+}
