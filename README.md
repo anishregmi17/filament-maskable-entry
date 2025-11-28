@@ -1,6 +1,7 @@
 <h1> Filament Maskable Entry </h1>
 
-![01KB2DNQYPT4B9TRPE36X6EA0E (2)](https://github.com/user-attachments/assets/bf29fdb5-2384-419a-a5fb-996c90e7e52f)
+![maskable-entry](https://github.com/user-attachments/assets/79a3ca44-e33e-4ea8-a843-805f68ae519d)
+
 
 <p align="center"><strong>A reusable maskable entry component for Filament Infolists.</strong></p>
 
