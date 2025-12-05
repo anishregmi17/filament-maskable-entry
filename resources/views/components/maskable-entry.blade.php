@@ -1,6 +1,5 @@
 <x-filament-infolists::entry-wrapper :entry="$entry">
     <div>
-        <div class="text-sm font-medium text-black-500">{{ $getLabel() }}</div>
         <div x-data="{ show: false }" class="flex items-center gap-2 mt-1">
             <span x-text="show ? '{{ $getFormattedValue() }}' : '{{ $getMaskedValue() }}'"></span>
             @if ($getFormattedValue() !== 'N/A')
