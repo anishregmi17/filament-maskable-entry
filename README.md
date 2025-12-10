@@ -56,7 +56,11 @@ public static function configure(Schema $schema): Schema
 }
 ```
 
----
+### Note:
+If you are using a custom theme add the plugin's views to your theme css file or your app's css file.
+```
+@source '../../../../vendor/anish/maskable-entry/resources/views/**/*.blade.php
+```
 
 ## Advanced Usage
 
