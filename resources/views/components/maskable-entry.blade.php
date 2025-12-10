@@ -2,7 +2,7 @@
     <div>
         <div x-data="{ show: false }" class="flex items-center gap-2 mt-1">
             <span x-text="show ? '{{ $getFormattedValue() }}' : '{{ $getMaskedValue() }}'"></span>
-            @if ($getFormattedValue() !== 'N/A')
+            @if ($getFormattedValue() !== 'N/A' && $isToggleable())
                 <button type="button" x-on:click="show = !show" class="text-black-100 hover:text-black-100">
                     <x-filament::icon icon="heroicon-o-eye" x-show="!show" class="w-5 h-5" />
                     <x-filament::icon icon="heroicon-o-eye-slash" x-show="show" class="w-5 h-5" />
