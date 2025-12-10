@@ -41,6 +41,7 @@ The package auto-discovers its service provider—no manual setup required.
 
 ```php
 use Anish\MaskableEntry\Components\MaskableEntry;
+use Illuminate\Support\Facades\Auth;
 use Filament\Schemas\Schema;
 
 public static function configure(Schema $schema): Schema
