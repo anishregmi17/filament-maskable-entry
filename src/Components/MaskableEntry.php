@@ -4,6 +4,7 @@ namespace Anish\MaskableEntry\Components;
 
 use Filament\Infolists\Components\TextEntry;
 use Anish\MaskableEntry\Traits\HasMaskableValueTrait;
+use Closure;
 
 
 class MaskableEntry extends TextEntry
