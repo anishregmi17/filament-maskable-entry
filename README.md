@@ -49,6 +49,7 @@ public static function configure(Schema $schema): Schema
         MaskableEntry::make('social_security_number')
             ->maskValue('XXX-XX-XXXX')
             ->actualValue(fn ($record) => $record->social_security_number)
+            ->toggleable(Auth::user()->can('view_social_security_number'))
             ->label('Social Security Number'),
     ]);
 }
