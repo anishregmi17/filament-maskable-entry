@@ -27,6 +27,17 @@ trait HasMaskableValueTrait
     protected string $emptyStateText = 'N/A';
 
     /**
+     * Initialize default values from config if available.
+     */
+    protected function initializeHasMaskableValueTrait(): void
+    {
+        if (function_exists('config')) {
+            $this->maskingChar = config('maskable-entry.masking_char', 'X');
+            $this->emptyStateText = config('maskable-entry.empty_state_text', 'N/A');
+        }
+    }
+
+    /**
      * Set the actual value to be revealed when toggled.
      *
      * @param  string|Closure|null  $value  The actual value or a closure that returns the value

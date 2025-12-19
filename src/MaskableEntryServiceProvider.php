@@ -25,6 +25,7 @@ class MaskableEntryServiceProvider extends PackageServiceProvider
         $package
             ->name('maskable-entry')
             ->hasViews()
+            ->hasConfigFile()
             ->hasViewComponent('maskable-entry', MaskableEntry::class);
     }
 

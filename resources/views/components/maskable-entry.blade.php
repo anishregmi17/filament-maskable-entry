@@ -14,13 +14,13 @@
                     x-bind:aria-pressed="show.toString()"
                 >
                     <x-filament::icon 
-                        icon="heroicon-o-eye" 
+                        :icon="$getShowIcon()" 
                         x-show="!show" 
                         class="w-5 h-5" 
                         aria-hidden="true"
                     />
                     <x-filament::icon 
-                        icon="heroicon-o-eye-slash" 
+                        :icon="$getHideIcon()" 
                         x-show="show" 
                         class="w-5 h-5"
                         style="display: none;"

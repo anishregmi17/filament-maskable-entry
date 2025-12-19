@@ -35,6 +35,20 @@ composer require anish/maskable-entry
 
 The package auto-discovers its service provider—no manual setup required.
 
+### Publishing Configuration (Optional)
+
+You can publish the configuration file to customize default settings:
+
+```bash
+php artisan vendor:publish --tag="maskable-entry-config"
+```
+
+This will create a `config/maskable-entry.php` file where you can set global defaults for:
+- Empty state text
+- Masking character
+- Toggleable state
+- Toggle icons
+
 ---
 
 ## Basic Usage
@@ -114,6 +128,17 @@ MaskableEntry::make('sensitive_data')
     ->label('Sensitive Information');
 ```
 
+### Custom Icons
+
+```php
+MaskableEntry::make('password')
+    ->maskValue('XXXXXXXX')
+    ->actualValue(fn ($record) => $record->password)
+    ->showIcon('heroicon-o-lock-closed')
+    ->hideIcon('heroicon-o-lock-open')
+    ->label('Password');
+```
+
 ---
 
 ## Available Methods
@@ -151,6 +176,22 @@ Customizes the placeholder text shown when no value is available. Default: `N/A`
 
 ```php
 ->emptyStateText('No data')
+```
+
+### `showIcon(string $icon)`
+
+Customizes the icon shown when the value is masked. Default: `heroicon-o-eye`.
+
+```php
+->showIcon('heroicon-o-lock-closed')
+```
+
+### `hideIcon(string $icon)`
+
+Customizes the icon shown when the value is revealed. Default: `heroicon-o-eye-slash`.
+
+```php
+->hideIcon('heroicon-o-lock-open')
 ```
 
 ### Supports All Standard `TextEntry` Methods
@@ -292,7 +333,7 @@ composer analyse
 
 ## Contributing
 
-Contributions are welcome!
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ### Development Setup
 
@@ -307,7 +348,7 @@ Contributions are welcome!
 
 ## Security
 
-If you find a security issue, please email:
+If you find a security issue, please review our [Security Policy](SECURITY.md) and email:
 **[anishregminaglibang@gmail.com](mailto:anishregminaglibang@gmail.com)**
 
 ---
