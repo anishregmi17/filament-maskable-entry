@@ -5,7 +5,7 @@
                 x-text="show ? '{{ $getFormattedValue() }}' : '{{ $getMaskedValue() }}'"
                 class="font-mono"
             ></span>
-            @if ($getFormattedValue() !== 'N/A' && $isToggleable())
+            @if ($getFormattedValue() !== $getEmptyStateText() && $isToggleable())
                 <button 
                     type="button" 
                     x-on:click="show = !show" 

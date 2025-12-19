@@ -50,6 +50,8 @@ class MaskableEntry extends TextEntry
             $this->isToggleable = config('maskable-entry.toggleable', true);
             $this->showIcon = config('maskable-entry.icons.show', 'heroicon-o-eye');
             $this->hideIcon = config('maskable-entry.icons.hide', 'heroicon-o-eye-slash');
+            $this->maskingChar = config('maskable-entry.masking_char', 'X');
+            $this->emptyStateText = config('maskable-entry.empty_state_text', 'N/A');
         }
     }
 
