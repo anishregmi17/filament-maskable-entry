@@ -58,8 +58,8 @@ public static function configure(Schema $schema): Schema
 
 ### Note:
 If you are using a custom theme add the plugin's views to your theme css file or your app's css file.
-```
-@source '../../../../vendor/anish/maskable-entry/resources/views/**/*.blade.php
+```css
+@import '../../../../vendor/anish/maskable-entry/resources/views/**/*.blade.php';
 ```
 
 ## Advanced Usage
@@ -92,6 +92,28 @@ MaskableEntry::make('api_key')
     ->label('API Key');
 ```
 
+### Custom Empty State Text
+
+```php
+MaskableEntry::make('secret')
+    ->maskValue('XXXXXXXXXXXX')
+    ->actualValue(fn ($record) => $record->secret)
+    ->emptyStateText('No secret available')
+    ->label('Secret Key');
+```
+
+### Conditional Toggleability
+
+```php
+use Illuminate\Support\Facades\Auth;
+
+MaskableEntry::make('sensitive_data')
+    ->maskValue('XXX-XXX-XXX')
+    ->actualValue(fn ($record) => $record->sensitive_data)
+    ->toggleable(Auth::user()->hasRole('admin'))
+    ->label('Sensitive Information');
+```
+
 ---
 
 ## Available Methods
@@ -121,6 +143,14 @@ Changes the masking character. Default: `X`.
 
 ```php
 ->maskingChar('*')
+```
+
+### `emptyStateText(string $text)`
+
+Customizes the placeholder text shown when no value is available. Default: `N/A`.
+
+```php
+->emptyStateText('No data')
 ```
 
 ### Supports All Standard `TextEntry` Methods
@@ -186,20 +216,76 @@ MaskableEntry::make('password')
 
 ---
 
+## Troubleshooting
+
+### Styling Issues
+
+If the component doesn't appear styled correctly:
+
+1. **Using Custom Theme**: Add the plugin views to your Tailwind CSS configuration:
+   ```css
+   @import '../../../../vendor/anish/maskable-entry/resources/views/**/*.blade.php';
+   ```
+
+2. **Rebuild Assets**: After adding the import, rebuild your theme:
+   ```bash
+   npm run build
+   ```
+
+### Toggle Not Working
+
+If the toggle button doesn't show or work:
+
+1. **Check Alpine.js**: Ensure Alpine.js is loaded (it's included with Filament by default)
+2. **Check Permissions**: Verify the `toggleable()` condition is returning `true`
+3. **Check Value**: Ensure `actualValue()` is returning a non-empty value
+
+### Formatting Issues
+
+If the value doesn't format correctly:
+
+1. **Pattern Mismatch**: Ensure your mask pattern length matches your actual value length
+2. **Character Support**: The default regex supports any character (previously only digits)
+3. **Custom Characters**: Use `maskingChar()` to change the masking character if needed
+
+---
+
 ## Testing
+
+Run the test suite:
 
 ```bash
 composer test
 ```
 
----
-
-## Code Style
-
-This package uses Laravel Pint:
+Run tests with coverage report:
 
 ```bash
+composer test-coverage
+```
+
+---
+
+## Code Quality
+
+### Code Style
+
+This package uses Laravel Pint for code formatting:
+
+```bash
+# Format code
 composer format
+
+# Check formatting without making changes
+composer format-check
+```
+
+### Static Analysis
+
+Run static analysis with PHPStan:
+
+```bash
+composer analyse
 ```
 
 ---
