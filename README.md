@@ -1,4 +1,8 @@
-<h1> Filament Maskable Entry </h1>
+# Filament Maskable Entry
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/anish/maskable-entry.svg?style=flat-square)](https://packagist.org/packages/anish/maskable-entry)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/anishregmi17/filament-maskable-entry/quality-checks.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/anishregmi17/filament-maskable-entry/actions?query=workflow%3A"Quality+Checks"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/anish/maskable-entry.svg?style=flat-square)](https://packagist.org/packages/anish/maskable-entry)
 
 ![maskable-entry](https://github.com/user-attachments/assets/79a3ca44-e33e-4ea8-a843-805f68ae519d)
 

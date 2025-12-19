@@ -1,0 +1,15 @@
+* text=auto eol=lf
+
+*.php diff=php
+
+/.editorconfig export-ignore
+/.gitattributes export-ignore
+/.github export-ignore
+/.gitignore export-ignore
+/tests export-ignore
+/phpstan.neon export-ignore
+/phpunit.xml.dist export-ignore
+/pint.json export-ignore
+/CONTRIBUTING.md export-ignore
+/SECURITY.md export-ignore
+/CHANGELOG.md export-ignore
