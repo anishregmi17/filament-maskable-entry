@@ -146,46 +146,6 @@ MaskableEntry::make('field')
 
 ---
 
-## Examples
-
-### SSN Number
-
-```php
-MaskableEntry::make('ssn')
-    ->maskValue('XXX-XX-XXXX')
-    ->actualValue(fn ($record) => $record->ssn)
-    ->label('Social Security Number');
-```
-
-### Credit Card Number
-
-```php
-MaskableEntry::make('credit_card')
-    ->maskValue('XXXX-XXXX-XXXX-XXXX')
-    ->actualValue(fn ($record) => $record->credit_card)
-    ->label('Credit Card');
-```
-
-### Phone Number
-
-```php
-MaskableEntry::make('phone')
-    ->maskValue('(XXX) XXX-XXXX')
-    ->actualValue(fn ($record) => $record->phone)
-    ->label('Phone Number');
-```
-
-### Password
-
-```php
-MaskableEntry::make('password')
-    ->maskValue('XXXXXXXX')
-    ->actualValue(fn ($record) => $record->password)
-    ->label('Password');
-```
-
----
-
 ## Testing
 
 ```bash
