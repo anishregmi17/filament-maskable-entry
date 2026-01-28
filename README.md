@@ -13,7 +13,7 @@ A powerful Filament PHP infolist component that enables seamless maskable entry.
 
 * 🔒 **Maskable Display** — Hide sensitive data with custom mask patterns
 * 👁️ **Toggle Visibility** — One click to reveal or hide the actual value
-* 🎨 **Native Filament v4 Integration** — Works like any infolist entry
+* 🎨 **Native Filament v4 & v5 Integration** — Works like any infolist entry
 * ⚙️ **Fully Configurable** — Custom patterns, masking characters, closures
 * 📱 **Responsive** — Works across all device sizes
 
@@ -23,7 +23,7 @@ A powerful Filament PHP infolist component that enables seamless maskable entry.
 
 * PHP 8.1+
 * Laravel 10+
-* Filament 4.x
+* Filament 4.x or 5.x
 
 ---
 
