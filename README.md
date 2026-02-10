@@ -82,16 +82,6 @@ MaskableEntry::make('password')
     ->label('Password');
 ```
 
-### Custom Masking Character
-
-```php
-MaskableEntry::make('api_key')
-    ->maskValue('****-****-****-****')
-    ->actualValue(fn ($record) => $record->api_key)
-    ->maskingChar('*')
-    ->label('API Key');
-```
-
 ---
 
 ## Available Methods
@@ -113,14 +103,6 @@ Defines the value revealed on toggle.
 ->actualValue(fn ($record) => $record->social_security_number)
 // or
 ->actualValue('123-45-6789')
-```
-
-### `maskingChar(string $char)`
-
-Changes the masking character. Default: `X`.
-
-```php
-->maskingChar('*')
 ```
 
 ### Supports All Standard `TextEntry` Methods
